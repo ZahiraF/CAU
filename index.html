@@ -25,58 +25,65 @@
                 <nav>
                     <ul>
                         <li><a href="#">MISIÓN</a></li>
-                        <li><a href="#">VISIÓN</a></li>
-                        <li><a href="#">CONTACTO</a></li>
-                        <li><a href="#">SERVICIOS</a></li>
+                        <li><a href="#vision">VISIÓN</a></li>
+                        <li><a href="#contacto">CONTACTO</a></li>
+                        <li><a href="#servicios">SERVICIOS</a></li>
                     </ul>
                 </nav>
             </div>
         </div>  
     </header>
     <main>
-        <div class="contenedor-mision">
+        <div class="contenedor-mision" id="mision">
             <h1>Mision</h1>
             <h3>Reducir el nivel de incumplimiento de los acuerdos de nivel de servicios (SLA) siguiendo el Manual de Procedimientos diseñado para este Centro de Atención al Usuario. En el mismo se detalla la única dinámica de trabajo que debe implementarse, y la cual todos los operadores deberán seguir.</h3>
         </div>
-        <div class="contenedor-vision">
+        <div class="contenedor-vision" id="vision">
             <h1>Vision</h1>
             <h3>A través del proceso de mejora continua buscamos fidelizar la confianza y visión de los usuarios para con el organismo </h3>
         </div>
-        <div class="contenedor-contacto">
+        <div class="contenedor-contacto" id="contacto">
             <h1>Contactate con nosotros</h1>
             <h3>Nuestro horario de atencion es de 8:00hs a 15:00hs.</br>Podes comunicarte a través de los siguientes medios.</h3>
             <!--en caso de escribir fuera de este horario, un bot le responderá y un operador se comunicará al dia siguiente para resolver el incidente-->
             <div class="medios">
-                <div class="medio-box" id="whatsapp-cau" onclick="mostrarQR()">
+                <div class="medio-box" id="whatsapp-cau" onclick="mostrarQR(), modal1()">
                     <!--<input id="boton-qr" type="button" name="qr" value="mostrar-qr"/>-->
                     <i class="lni lni-whatsapp"></i>
                     <h3>WHATSAPP</h3>   
                 </div>
-                <div class="popup" id="qr-wpp" style="display:none;">
-                        <img src="/img/IMG-20230626-WA0003.jpg" alt="código qr" class="imagen-qr">
-                        <button class="cerrar" onclick="ocultarQR()">Cerrar</button>
+                <div class="oscurecer" id="modal1">
+                    <div class="popup" id="qr-wpp" style="display:none;">
+                        <div><img src="/img/IMG-20230626-WA0003.jpg" alt="código qr" class="imagen-qr"></div>
+                        <button class="cerrar" onclick="ocultarQR(), ocultarMod1()">Cerrar</button>
+                    </div>
                 </div>
-                <div class="medio-box" id="email-cau" onclick="mostrarEmail()">
+                <div class="medio-box" id="email-cau" onclick="mostrarEmail(), modal2()">
                     <i class="lni lni-envelope"></i>
                     <h3>EMAIL</h3>
                 </div>
-                <div class="popup" id="mostrar-email" style="display: none;">
-                    <h3>cau@neuquen.gov.ar</h3>
-                    <button class="cerrar" onclick="ocultarEmail()">Cerrar</button>
+                <div class="oscurecer" id="modal2" >
+                    <div class="popup" id="mostrar-email" style="display: none;">
+                        <h3>cau@neuquen.gov.ar</h3>
+                        <button class="cerrar" onclick="ocultarEmail(), ocultarMod2()">Cerrar</button>
+                    </div>
                 </div>
-                <div class="medio-box" id="telefono-cau" onclick="mostrarTel()">
+                <div class="medio-box" id="telefono-cau" onclick="mostrarTel(), modal3()">
                     <i class="lni lni-phone"></i>
                     <h3>TELEFONO</h3>
                 </div>
-                <div class="popup" id="mostrar-tel" style="display: none;">
-                    <h3>299 449-5371</h3>
-                    <button class="cerrar" onclick="ocultarTel()">Cerrar</button>
+                <div class="oscurecer" id="modal3">
+                    <div class="popup" id="mostrar-tel" style="display: none;">
+                        <h3>299 449-5371</h3>
+                        <button class="cerrar" onclick="ocultarTel(), ocultarMod3()">Cerrar</button>
+                    </div>  
                 </div>
-                
-                
+                 
             </div>
         </div>
-        <div class="contenedor-servicios">
+        
+        
+        <div class="contenedor-servicios" id="servicios">
             <h1>Servicios</h1>
             <h3>Soporte técnico a plataformas como One Login, Peuptics, GDE, GestDocu, Rh.ProNeu, Correos Institucionales y Fotocopia Digital.</h3>
             <h3>Gestión de incidentes en conjunto a nuestros otros departamentos.</h3>
@@ -86,113 +93,114 @@
         <div class="botones">
             
                 <button>presentacion</button>
-                <button onclick="mostrarFormulario()">Reportar incidente</button>
+                <button onclick="mostrarFormulario(), modal4()">Reportar incidente</button>
         </div> 
-        <div id="formulario" style="display: none;">
-            <form action="#" method="get" name="form-incidente" onsubmit="enviarFormulario()">
-                <h2>Reportar incidente</h2>
-                <fieldset>
-                    <legend>Informacion del solicitante</legend>
-                    <div class="grupo-form">
-                        <label for="nombres">Nombre</label>
-                        <input type="text" id="nombre-solicitante" name="nombre" maxlength="35" required placeholder=" ">
-                    </div>
-                    <div class="grupo-form">
-                        <label for="apellido">Apellido</label>
-                        <input type="text" id="apellido-solicitante" name="apellido" maxlength="30" required placeholder=" ">
-                    </div>
-                    <div class="grupo-form">
-                        <label for="dni">DNI</label>
-                        <input type="number" id="dni-solicitante" name="dni" maxlength="8" required placeholder=" ">
-                    </div>
-                    <div class="grupo-form">
-                        <label for="email">Email/Correo de contacto</label>
-                        <input type="email" id="email" name="email-solicitante" placeholder=" " required>     
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <legend>Sobre el incidente</legend>
-                    <label for="categoria">Categoría</label>
-                    <select name="categoria" id="categoria-incidente" onchange="mostrarCampos()">
-                        <option value="" disabled selected hidden>Seleccione una opcion</option>
-                        <option value="delivery">Delivery</option>
-                        <option value="firma-digital">Firma Digital</option>
-                        <option value="fotocopia-digital">Fotocopia Digital</option>
-                        <option value="gde">GDE</option>
-                        <option value="one-login">One Login</option>
-                        <option value="peuptics">Peuptics</option>
-                        <option value="redes">Redes</option> <!--dentro de option: onclick="Mostrar_Ocultar(this.selected);"-->
-                        <option value="servicios-web">Servicios Web</option>
-                        <option value="soporte">Soporte</option>
-                    </select>
-                    </br>
-                    
-                        
-                    <div id="one-login" style="display:none;">    
-                        <label for="legajo">Legajo</label>
-                        <input type="number" id="legajo">
-                        </br>
-                        <label for="archivo">Seleccionar archivo:</label>
-                        <input type="file" id="archivo" name="archivo">
-                        <!--añadir dni (subir)
-                        <label for="archivo">Seleccionar archivo:</label>
-                        <input type="file" id="archivo" name="archivo">
-
-                        <label for="archivos">Seleccionar archivos (máximo 2):</label>
-                        <input type="file" id="archivos" name="archivos" multiple accept="image/*">
-                        -->
-                    </div>
-                    
-                    <div id="peuptics" style="display: none;">
-                        <label for="archivo-peuptics">Archivo</label>
-                        <input type="file" id="archivo-peuptics" name="archivo-peuptics" accept="">
-                    </div>
-                    
-                    <div id="redes" style="display:none;">
-                        <label for="establecimiento">Establecimiento</label>
-                        <input type="text" id="establecimiento" maxlength="50">
-                        </br>
-                        <label for="localidad">Localidad</label>
-                        <input type="text" id="localidad" maxlength="50">
-                        </br>
-                        <label for="tipo-conexion">Tipo de conexion</label>
-                        <select name="tipo-conexion" id="tipo-conexion">
+        <div class="oscurecer" id="modal4">
+            <div id="formulario" style="display: none;" class="popup">
+                <form action="#" method="get" name="form-incidente" onsubmit="enviarFormulario()">
+                    <h2>Reportar incidente</h2>
+                    <fieldset>
+                        <legend>Informacion del solicitante</legend>
+                        <div class="grupo-form">
+                            <label for="nombres">Nombre</label>
+                            <input type="text" id="nombre-solicitante" name="nombre" maxlength="35" required placeholder=" ">
+                        </div>
+                        <div class="grupo-form">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" id="apellido-solicitante" name="apellido" maxlength="30" required placeholder=" ">
+                        </div>
+                        <div class="grupo-form">
+                            <label for="dni">DNI</label>
+                            <input type="number" id="dni-solicitante" name="dni" maxlength="8" required placeholder=" ">
+                        </div>
+                        <div class="grupo-form">
+                            <label for="email">Email/Correo de contacto</label>
+                            <input type="email" id="email" name="email-solicitante" placeholder=" " required>     
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Sobre el incidente</legend>
+                        <label for="categoria">Categoría</label>
+                        <select name="categoria" id="categoria-incidente" onchange="mostrarCampos()">
                             <option value="" disabled selected hidden>Seleccione una opcion</option>
-                            <option value="fibra-optica">Fibra Optica</option>
-                            <option value="satelital">Satelital</option>
-                            <option value="cobre">Cobre</option>
-                            <option value="inalambrica">Inalámbrica</option>
+                            <option value="delivery">Delivery</option>
+                            <option value="firma-digital">Firma Digital</option>
+                            <option value="fotocopia-digital">Fotocopia Digital</option>
+                            <option value="gde">GDE</option>
+                            <option value="one-login">One Login</option>
+                            <option value="peuptics">Peuptics</option>
+                            <option value="redes">Redes</option> <!--dentro de option: onclick="Mostrar_Ocultar(this.selected);"-->
+                            <option value="servicios-web">Servicios Web</option>
+                            <option value="soporte">Soporte</option>
                         </select>
                         </br>
+                        
+                            
+                        <div id="one-login" style="display:none;">    
+                            <label for="legajo">Legajo</label>
+                            <input type="number" id="legajo" inputmode="numeric" pattern="[0-9]*">
+                            </br>
+                            <label for="archivo">Seleccionar archivo:</label>
+                            <input type="file" id="archivo" name="archivo" multiple accept=".pdf, .png, .jpg">
+                            <label for="fecha-ingreso">Fecha de ingreso</label>
+                            <input type="date" id="fecha-ingreso">
+                            
+                        </div>
+                        
+                        <div id="peuptics" style="display: none;">
+                            <label for="archivo-peuptics">Archivo</label>
+                            <input type="file" id="archivo-peuptics" name="archivo-peuptics" accept=".xlsx, .xls, .csv">
+                        </div>
+                        
+                        <div id="redes" style="display:none;">
+                            <label for="establecimiento">Establecimiento</label>
+                            <input type="text" id="establecimiento" maxlength="50">
+                            </br>
+                            <label for="localidad">Localidad</label>
+                            <input type="text" id="localidad" maxlength="50">
+                            </br>
+                            <label for="tipo-conexion">Tipo de conexion</label>
+                            <select name="tipo-conexion" id="tipo-conexion">
+                                <option value="" disabled selected hidden>Seleccione una opcion</option>
+                                <option value="fibra-optica">Fibra Optica</option>
+                                <option value="satelital">Satelital</option>
+                                <option value="cobre">Cobre</option>
+                                <option value="inalambrica">Inalámbrica</option>
+                            </select>
+                            </br>
+                        </div>
+                        
+    
+                        <div id="delivery" style="display:none;">
+                            <label for="software">Software</label>
+                            <input type="text" id="software" maxlength="30">
+                            <label for="servidor">Servidor</label>
+                            <input type="text" id="servidor" maxlength="20">
+                            <label for="ip">IP</label>
+                            <input type="text" id="ip" maxlength="15">
+                        </div>   
+    
+                        <div id="servicios-web" style="display: none;">
+                            <label for="url">URL</label>
+                            <input type="url" id="url">
+                        </div>
+                        
+                        <label for="asunto">Asunto</label>
+                        <input type="text" id="asunto" maxlength="60">
+                        </br>
+    
+                        <label for="descripcion">Descripcion</label>
+                        <textarea id="descripcion" name="descripcion" placeholder="Cuentanos que ocurrió" maxlength="200" rows="5" cols="30"></textarea>
+                        <input type="hidden" id="horaEnvio" name="horaEnvio">
+                    </fieldset>
+                    <div class="botones-form">
+                        <button class="enviar" type="submit"  value="enviar-formulario" onclick="ocultarMod4()">Enviar</button>
+                        <button class="cerrar" onclick=" ocultarMod4()">Cerrar</button>
                     </div>
-                    
-
-                    <div id="delivery" style="display:none;">
-                        <label for="software">Software</label>
-                        <input type="text" id="software" maxlength="30">
-                        <label for="servidor">Servidor</label>
-                        <input type="text" id="servidor" maxlength="20">
-                        <label for="ip">IP</label>
-                        <input type="text" id="ip" maxlength="15">
-                    </div>   
-
-                    <div id="servicios-web" style="display: none;">
-                        <label for="url">URL</label>
-                        <input type="url" id="url">
-                    </div>
-                    
-                    <label for="asunto">Asunto</label>
-                    <input type="text" id="asunto" maxlength="60">
-                    </br>
-
-                    <label for="descripcion">Descripcion</label>
-                    <textarea id="descripcion" name="descripcion" placeholder="Cuentanos que ocurrió" maxlength="200" rows="5" cols="30"></textarea>
-                    <input type="hidden" id="horaEnvio" name="horaEnvio">
-                </fieldset>
-                
-                <button type="submit"  value="enviar-formulario">Enviar</button>
-            </form>
+                </form>
+            </div>
         </div>
+        
     
     </main>
     <footer>

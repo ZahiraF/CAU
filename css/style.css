@@ -10,16 +10,20 @@
 header{
     width: 100%;
     height: 100px;
-    padding: 10px 10px;
     background: #f2f2ff;
+    position: fixed;
+    z-index: 20;
+    top: 0px;
 }
 
 .container-menu{
     max-width: 1200px;
     height: 100%;
     margin: auto;
+    padding: 10px 10px;
     display: flex;
     justify-content: space-between;
+    
 }
 
 .logo{
@@ -33,8 +37,12 @@ header{
     display: flex;
     height: 100%;
     align-items: center;
+    
 }
-
+.cau p{
+    font-weight: bold;
+    font-size: larger;
+}
 .menu {
     display: flex;
     align-items: center;
@@ -62,6 +70,7 @@ header{
 main{
     width: 100%;
     justify-content: center;
+    margin-top: 120px;
 }
 
 /*MISION*/
@@ -131,11 +140,49 @@ main{
     cursor: pointer;
 }
 .popup{
-    margin: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #ffffff;
+    border: 2px solid #ffffff;
+    position: absolute;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+}
+
+.oscurecer{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.664);
+  z-index: 9999;
+}
+.cerrar{
+    background-color: #a1b3b1;
+    border: 2px solid #a1b3b1;
+    border-radius: 15px;
+    padding: 10px;
+    text-transform: uppercase ;
+    font-weight: bold;
+    
+}
+.cerrar:hover{
+    border-color: #828a8a;
+}
+#qr-wpp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .imagen-qr{
-    width: 400px;
+    width: 300px;
 }
 /*SERVICIOS*/
 .contenedor-servicios{
@@ -158,13 +205,19 @@ main{
     display: flex;
     
 }
+.botones button:hover{
+    border-color: #010152;
+    
+}
 .botones button{
     margin: auto; 
     padding: 15px;
     border-radius: 20px;
     background-color: #010084;
+    border: 2px solid #010084;
     color: #ffffff;
     text-transform: uppercase;
+    font-weight: bold;
 }
 #formulario{
     width: 500px;
@@ -188,19 +241,38 @@ fieldset{
 
 }
 */
-form label, form input[type="text"], form input[type="email"], form input[type="number"], form input[type="file"], form input[type="url"]{
+form label, form input[type="text"], form input[type="email"], form input[type="number"], form input[type="file"], form input[type="url"], form input[type="date"]{
     display: inline-block ;
     width: 40%;
     padding: 4px 6px;
     margin: 5px;
 }
-form select, form textarea{
+form select, form textarea, form label{
     display: inline-block ;
     width: 40%;
     padding: 4px 6px;
     margin: 5px;
 }
-*/
+.enviar{
+    background-color: #87e58b;
+    border: 2px solid #87e58b;
+    border-radius: 15px;
+    padding: 10px;
+    text-transform: uppercase ;
+    font-weight: bold;
+}
+.enviar:hover{
+    border-color: #70bd74;
+}
+.botones-form{
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+.botones-form button{
+    margin: auto 10px;
+}
 /*footer*/
 footer{
     width: 100%;
@@ -212,10 +284,13 @@ footer{
     margin: auto;
     align-items: center;
     display: flex;
+    
 }
 .pie-optic img{
     width: 80%;
     margin: auto;
+    padding-top: 60px;
+    padding-bottom: 15px;
 }
 
 /*Responsive*/
