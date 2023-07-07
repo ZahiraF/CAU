@@ -97,12 +97,12 @@
         </div> 
         <div class="oscurecer" id="modal4">
             <div id="formulario" style="display: none;" class="popup">
-                <form action="#" method="get" name="form-incidente" onsubmit="enviarFormulario()">
+                <form action="form-incidente.php" method="post" name="form-incidente" onsubmit="enviarFormulario()">
                     <h2>Reportar incidente</h2>
                     <fieldset>
                         <legend>Informacion del solicitante</legend>
                         <div class="grupo-form">
-                            <label for="nombres">Nombre</label>
+                            <label for="nombre">Nombre</label>
                             <input type="text" id="nombre-solicitante" name="nombre" maxlength="35" required placeholder=" ">
                         </div>
                         <div class="grupo-form">
@@ -186,7 +186,7 @@
                         </div>
                         
                         <label for="asunto">Asunto</label>
-                        <input type="text" id="asunto" maxlength="60">
+                        <input type="text" id="asunto" name="asunto" maxlength="60">
                         </br>
     
                         <label for="descripcion">Descripcion</label>
@@ -194,7 +194,7 @@
                         <input type="hidden" id="horaEnvio" name="horaEnvio">
                     </fieldset>
                     <div class="botones-form">
-                        <button class="enviar" type="submit"  value="enviar-formulario" onclick="ocultarMod4()">Enviar</button>
+                        <button class="enviar" type="submit"  value="enviar-formulario">Enviar</button>
                         <button class="cerrar" onclick=" ocultarMod4()">Cerrar</button>
                     </div>
                 </form>
